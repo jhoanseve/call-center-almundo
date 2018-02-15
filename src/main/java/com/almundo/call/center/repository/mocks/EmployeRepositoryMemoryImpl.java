@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.almundo.call.center.calls.mocks;
+package com.almundo.call.center.repository.mocks;
 
 import com.almundo.call.center.model.Employee;
 import static com.almundo.call.center.model.Employee.TYPE.*;
