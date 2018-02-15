@@ -11,4 +11,4 @@ dispatcher:
 logging:
     level:
         org.springframework.web: INFO
-        com.almundo.call.center: DEBUG
+        com.almundo.call.center: INFO

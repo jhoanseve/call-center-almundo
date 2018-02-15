@@ -30,4 +30,8 @@ public class Call {
         employee.hold();
         this.employee = employee;
     }
+
+    public void close() {
+        employee.release();
+    }
 }

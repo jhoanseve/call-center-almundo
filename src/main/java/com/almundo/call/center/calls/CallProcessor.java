@@ -8,6 +8,7 @@ package com.almundo.call.center.calls;
 import com.almundo.call.center.model.Call;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicLong;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -17,6 +18,10 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class CallProcessor implements Callable<Call> {
+    /**
+     * Contador de tareas procesadas
+     */
+    public static AtomicLong counter = new AtomicLong();
 
     private final Call call;
 
@@ -34,7 +39,9 @@ public class CallProcessor implements Callable<Call> {
             TimeUnit.SECONDS.sleep(call.getDuration());
         } catch (InterruptedException ex) {
         } finally {
-            log.info("Finalizacion de llamada [{}]", call);
+            call.close();            
+            log.info("Counter #{}. Finalizacion de llamada [{}].", 
+                    counter.getAndIncrement(), call);
         }
         
         return call;

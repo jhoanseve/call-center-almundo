@@ -5,6 +5,7 @@
  */
 package com.almundo.call.center.calls;
 
+import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,8 +17,8 @@ import org.springframework.test.context.junit4.SpringRunner;
  *
  * @author root
  */
-@RunWith(SpringRunner.class)
 @SpringBootTest
+@RunWith(SpringRunner.class)
 public class CallProviderImplTest {
     @Autowired
     private CallProvider callProvider;
@@ -25,16 +26,19 @@ public class CallProviderImplTest {
     public CallProviderImplTest() {
     }
     
-
+    
     /**
      * Test of call method, of class CallProviderImpl.
      * @throws java.lang.InterruptedException
      */
     @Test
     public void testCall() throws InterruptedException {
-        IntStream.range(0, 10).forEach(i -> callProvider.call());
+        int calls = 30;
+        IntStream.range(0, calls).forEach(i -> callProvider.call());
         
-        Thread.sleep(20000);
+        while(CallProcessor.counter.get() < calls) {
+            TimeUnit.SECONDS.sleep(1);
+        }
     }
     
 }

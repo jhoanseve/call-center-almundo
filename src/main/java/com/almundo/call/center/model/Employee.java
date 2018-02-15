@@ -23,11 +23,22 @@ public class Employee {
     private TYPE type;
     private boolean available;
 
+    public synchronized boolean isAvailable() {
+        return this.available;
+    }
+    
     /**
      * Metodo encargado de bloquear al empleado para que no pueda ser usado 
      * en mas de una llamada al tiempo
      */
-    public void hold() {
+    protected synchronized void hold() {
         this.available = Boolean.FALSE;
+    }
+
+    /**
+     * Metodo encargado de colocar disponible un empleado
+     */
+    protected synchronized void release() {
+        this.available = Boolean.TRUE;
     }
 }
