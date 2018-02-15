@@ -1,0 +1,14 @@
+dispatcher:
+#    max:
+    # Numero maximo de llamadas que puede atender
+#        calls: 10
+    wait:
+        # mensaje de espera que 
+        message: Nuestros operadores estan ocupados, por favor espere en un momento lo atenderemos
+        
+
+#Logging configuration
+logging:
+    level:
+        org.springframework.web: INFO
+        com.almundo.call.center: DEBUG
