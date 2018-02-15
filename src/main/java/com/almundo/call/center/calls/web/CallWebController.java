@@ -3,14 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.almundo.call.center.calls;
+package com.almundo.call.center.calls.web;
 
+import com.almundo.call.center.calls.CallProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- *
+ * Rest controller donde seria el punto de entrada de las llamadas
+ * 
  * @author root
  */
 @RestController

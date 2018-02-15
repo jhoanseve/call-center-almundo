@@ -5,9 +5,9 @@
  */
 package com.almundo.call.center.calls.mocks;
 
-import com.almundo.call.center.calls.EmployeRepository;
 import com.almundo.call.center.model.Employee;
 import static com.almundo.call.center.model.Employee.TYPE.*;
+import com.almundo.call.center.repository.EmployeRepository;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
